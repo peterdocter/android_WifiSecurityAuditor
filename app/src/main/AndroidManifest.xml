@@ -15,7 +15,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ScanActivity"></activity>
+        <activity android:name=".ScanActivity" android:label="Scan"/>
+        <activity android:name=".AboutActivity" android:label="About"/>
+        <activity android:name=".SettingsActivity" android:label="Settings">
+
+        </activity>
     </application>
 
 </manifest>
