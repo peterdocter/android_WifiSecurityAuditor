@@ -17,17 +17,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        if(checkSelfPermission(Manifest.permission.ACCESS_WIFI_STATE) == PackageManager.PERMISSION_GRANTED){
-
-        }
-
-        ActivityCompat.requestPermissions(this,
-                new String[]{Manifest.permission.ACCESS_WIFI_STATE},
-                1);
-        ActivityCompat.requestPermissions(this,
-                new String[]{Manifest.permission.CHANGE_WIFI_STATE},
-                1);
     }
 
     @Override
