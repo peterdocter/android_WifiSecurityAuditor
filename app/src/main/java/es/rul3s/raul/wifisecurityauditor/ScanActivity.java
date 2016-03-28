@@ -8,19 +8,11 @@ import android.net.wifi.ScanResult;
 import android.net.wifi.WifiManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
 import android.widget.ArrayAdapter;
-import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
-import android.widget.TwoLineListItem;
-
-import org.apache.http.message.BasicNameValuePair;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -49,7 +41,6 @@ public class ScanActivity extends AppCompatActivity {
 
         checkWifi();
         scan();
-        //
     }
 
     // Create a BroadcastReceiver for ACTION_FOUND
@@ -60,53 +51,37 @@ public class ScanActivity extends AppCompatActivity {
             size = scanResults.size();
             tvState.setText("Scan completed, " +size + " wifis found");
             completeListView();
-            //Toast.makeText(context, "Scan completed, " +scanResults.size() +" wifis found", Toast.LENGTH_SHORT).show();
         }
     };
 
     private void checkWifi(){
         if(!wifimgr.isWifiEnabled()){
             tvState.setText(R.string.scan_wifiDisabled);
-            //Toast.makeText(this, R.string.scan_wifiDisabled, Toast.LENGTH_SHORT).show();
             wifimgr.setWifiEnabled(true);
         }
     }
 
     private void scan(){
-        if(wifimgr.startScan()){
-            tvState.setText(R.string.scan_scanning);
-            //Toast.makeText(this, R.string.scan_scanning, Toast.LENGTH_SHORT).show();
-        }
-        else{
-            tvState.setText(R.string.scan_scanningFail);
-            //Toast.makeText(this, R.string.scan_scanningFail, Toast.LENGTH_SHORT).show();
-        }
+        if(wifimgr.startScan())tvState.setText(R.string.scan_scanning);
+        else tvState.setText(R.string.scan_scanningFail);
     }
 
     private void completeListView(){
         ScanResult actual;
-        final List<String[]> wifiDetails = new LinkedList<String[]>();
+        final List<String[]> wifiDetails = new LinkedList<>();
 
         for(int i=0; i<scanResults.size(); i++){
             actual = scanResults.get(i);
-            wifiDetails.add(new String[] { actual.SSID, actual.BSSID});
+            wifiDetails.add(new String[]{"ESSID: " + actual.SSID, "BSSID: " + actual.BSSID + " \nWidth:" + actual.frequency + "mhz\n" + actual.capabilities});
         }
 
+        //Create the adapter for the ListView, modified ArrayAdapter to fit twolineslaoyout
         resultsView.setAdapter(new ArrayAdapter<String[]>(
-                this,
-                android.R.layout.simple_list_item_2,
-                android.R.id.text1,
-                wifiDetails) {
+                this, android.R.layout.simple_list_item_2, android.R.id.text1, wifiDetails){
 
             @Override
             public View getView(int position, View convertView, ViewGroup parent) {
-
-                // Must always return just a View.
                 View view = super.getView(position, convertView, parent);
-
-                // If you look at the android.R.layout.simple_list_item_2 source, you'll see
-                // it's a TwoLineListItem with 2 TextViews - text1 and text2.
-                //TwoLineListItem listItem = (TwoLineListItem) view;
                 String[] entry = wifiDetails.get(position);
                 TextView text1 = (TextView) view.findViewById(android.R.id.text1);
                 TextView text2 = (TextView) view.findViewById(android.R.id.text2);
