@@ -68,13 +68,16 @@ public class ScanActivity extends AppCompatActivity {
 
     private void completeListView(){
         ScanResult actual;
-        final List<String[]> wifiDetails = new LinkedList<>();
+        LinkedList<WifiDetails> wifiList = new LinkedList<>();
 
         for(int i=0; i<scanResults.size(); i++){
             actual = scanResults.get(i);
-            wifiDetails.add(new String[]{"ESSID: " + actual.SSID, "BSSID: " + actual.BSSID + " \nWidth:" + actual.frequency + "mhz\n" + actual.capabilities});
+            wifiList.add(new WifiDetails(actual.BSSID,actual.SSID,actual.capabilities,actual.frequency));
         }
 
+        WifiAdapter listAdapter = new WifiAdapter(this, wifiList);
+        resultsView.setAdapter(listAdapter);
+        /*
         //Create the adapter for the ListView, modified ArrayAdapter to fit twolineslaoyout
         resultsView.setAdapter(new ArrayAdapter<String[]>(
                 this, android.R.layout.simple_list_item_2, android.R.id.text1, wifiDetails){
@@ -90,5 +93,6 @@ public class ScanActivity extends AppCompatActivity {
                 return view;
             }
         });
+        */
     }
 }

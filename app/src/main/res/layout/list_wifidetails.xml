@@ -1,0 +1,59 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="85dip">
+
+    <ImageView
+        android:id="@+id/list_icon"
+        android:layout_width="80dip"
+        android:layout_height="fill_parent"
+        android:layout_alignParentTop="true"
+        android:contentDescription="TODO"
+        android:src="@drawable/ic_settings_black_24dp"
+        android:padding="15dip"
+        android:layout_alignParentBottom="true" />
+
+    <TextView
+        android:id="@+id/list_bssid"
+        android:layout_width="fill_parent"
+        android:layout_height="25dip"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignWithParentIfMissing="true"
+        android:layout_toRightOf="@id/list_icon"
+        android:gravity="center_vertical"
+        android:text="BSSID"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/list_essid"
+        android:layout_width="wrap_content"
+        android:layout_height="15dip"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="ESSID"
+        android:layout_below="@+id/list_bssid"
+        android:textSize="10sp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignStart="@+id/list_bssid" />
+
+    <TextView
+        android:id="@+id/list_channel"
+        android:layout_width="wrap_content"
+        android:layout_height="15dip"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Channel Width"
+        android:layout_below="@+id/list_essid"
+        android:textSize="10sp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignStart="@+id/list_essid" />
+
+    <TextView
+        android:id="@+id/list_security"
+        android:layout_width="wrap_content"
+        android:layout_height="15dip"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Security"
+        android:layout_below="@+id/list_channel"
+        android:textSize="10sp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignStart="@+id/list_channel"/>
+</RelativeLayout>
