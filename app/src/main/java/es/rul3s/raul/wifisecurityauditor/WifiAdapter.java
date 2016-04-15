@@ -26,10 +26,10 @@ public class WifiAdapter extends ArrayAdapter<WifiDetails> {
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View rowView = inflater.inflate(R.layout.list_wifidetails, parent, false);
         WifiDetails wifi = wifis.get(position);
-        ((TextView)rowView.findViewById(R.id.list_bssid)).setText(wifi.getBssid());
-        ((TextView)rowView.findViewById(R.id.list_essid)).setText(wifi.getEssid());
-        ((TextView)rowView.findViewById(R.id.list_channel)).setText(""+wifi.getChannel());
-        ((TextView)rowView.findViewById(R.id.list_security)).setText(wifi.getSecurity());
+        ((TextView)rowView.findViewById(R.id.list_bssid)).setText("BSSID: " +wifi.getBssid());
+        ((TextView)rowView.findViewById(R.id.list_essid)).setText("ESSID: " +wifi.getEssid());
+        ((TextView)rowView.findViewById(R.id.list_channel)).setText("Width: " +wifi.getChannel() +"Mhz - Channel: " +wifi.getChannelNumber());
+        ((TextView)rowView.findViewById(R.id.list_security)).setText("Sec: " +wifi.getSecurity());
         return rowView;
     }
 }

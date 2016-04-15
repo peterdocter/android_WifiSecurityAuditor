@@ -68,4 +68,52 @@ public class WifiDetails {
     public void setChannel(int channel) {
         this.channel = channel;
     }
+
+    public int getChannelNumber(){
+        int channelNum;
+        switch (channel){
+            case 2412:
+                channelNum = 1;
+                break;
+            case 2417:
+                channelNum = 2;
+                break;
+            case 2422:
+                channelNum = 3;
+                break;
+            case 2427:
+                channelNum = 4;
+                break;
+            case 2432:
+                channelNum = 5;
+                break;
+            case 2437:
+                channelNum = 6;
+                break;
+            case 2442:
+                channelNum = 7;
+                break;
+            case 2447:
+                channelNum = 8;
+                break;
+            case 2452:
+                channelNum = 9;
+                break;
+            case 2457:
+                channelNum = 10;
+                break;
+            case 2462:
+                channelNum = 11;
+                break;
+            case 2467:
+                channelNum = 12;
+                break;
+            case 2472:
+                channelNum = 13;
+                break;
+            default: channelNum = -1;
+                break;
+        }
+        return channelNum;
+    }
 }
