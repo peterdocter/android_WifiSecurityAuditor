@@ -45,5 +45,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(changeAct);
     }
 
+    public void btManual(View view){
+        Intent changeAct = new Intent(this,ManualConnectActivity.class);
+        startActivity(changeAct);
+    }
+
 
 }

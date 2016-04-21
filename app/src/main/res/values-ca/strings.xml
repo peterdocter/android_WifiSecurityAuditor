@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Auditor Seguretat Inalambrica</string>
+
     <string name="main_scan">Escanejar</string>
+    <string name="main_manual">Introduir manualment</string>
 </resources>

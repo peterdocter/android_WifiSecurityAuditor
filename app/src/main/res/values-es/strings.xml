@@ -2,4 +2,5 @@
 <resources>
     <string name="app_name">Auditor Seguridad WiFi</string>
     <string name="main_scan">Escanear</string>
+    <string name="main_manual">Introducir manualmente</string>
 </resources>

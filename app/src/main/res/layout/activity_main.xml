@@ -15,6 +15,20 @@
         android:text="@string/main_scan"
         android:id="@+id/main_btScan"
         android:layout_alignParentTop="true"
+        android:onClick="btScan"
+        android:layout_alignRight="@+id/main_btManual"
+        android:layout_alignEnd="@+id/main_btManual"
+        android:layout_alignLeft="@+id/main_btManual"
+        android:layout_alignStart="@+id/main_btManual" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/main_manual"
+        android:id="@+id/main_btManual"
+        android:layout_below="@+id/main_btScan"
         android:layout_centerHorizontal="true"
-        android:onClick="btScan" />
+        android:onClick="btManual" />
+
 </RelativeLayout>

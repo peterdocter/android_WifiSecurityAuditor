@@ -1,16 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Wifi Security Auditor</string>
+    <string name="bssid">BSSID</string>
+    <string name="essid">ESSID</string>
+    <string name="wpsPin">WPS PIN</string>
+    <string name="connect">Connect</string>
 
     <string name="main_scan">Scan</string>
+    <string name="main_manual">Manual Input</string>
 
     <string name="scan_wifiDisabled">Wifi is disabled, enabling...</string>
     <string name="scan_scanning">Scanning...</string>
     <string name="scan_scanningFail">Problem start Scanning...</string>
 
+    <string name="manual_title">Manual WPS Connect</string>
+
     <string name="menu_settings">Settings</string>
     <string name="menu_about">About</string>
-
 
 
     <string name="about_desc">
