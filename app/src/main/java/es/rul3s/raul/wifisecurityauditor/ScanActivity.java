@@ -9,8 +9,14 @@ import android.net.wifi.ScanResult;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.ContextMenu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -37,9 +43,35 @@ public class ScanActivity extends AppCompatActivity {
         IntentFilter wifiScanFilter = new IntentFilter(WifiManager.SCAN_RESULTS_AVAILABLE_ACTION);
         registerReceiver(wifiScanReceiver, wifiScanFilter); // Don't forget to unregister during onDestroy
 
+        registerForContextMenu(resultsView);
         checkWifi();
         scan();
     }
+
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main, menu);
+    }
+
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+        // below variable info contains clicked item info and it can be null; scroll down to see a fix for it
+        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+        switch(item.getItemId()){
+            case R.id.onclick_lvInsert:
+                Toast.makeText(this,"INSERT",Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.onclick_lvVulnerabilities:
+                Toast.makeText(this,"VULNERABILITIES",Toast.LENGTH_SHORT).show();
+                return true;
+            default:
+                return super.onContextItemSelected(item);
+        }
+    }
+
 
     // Create a BroadcastReceiver for ACTION_FOUND
     final BroadcastReceiver wifiScanReceiver = new BroadcastReceiver() {

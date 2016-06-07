@@ -1,7 +1,9 @@
 package es.rul3s.raul.wifisecurityauditor;
 
 import android.app.Activity;
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
 import android.net.wifi.WifiConfiguration;
 import android.net.wifi.WifiManager;
 import android.net.wifi.WifiManager.WpsCallback;
@@ -88,33 +90,39 @@ public class ManualConnectActivity extends Activity {
 
         @Override
         public void onFailed(int reason) {
-            Toast.makeText(context,"Failed",Toast.LENGTH_SHORT).show();
-            /*
-            mWpsComplete = true;
+            //mWpsComplete = true;
             String errorMessage;
+            Toast.makeText(context,"REASON: " +reason,Toast.LENGTH_SHORT).show();
             switch (reason) {
+
                 case WifiManager.WPS_OVERLAP_ERROR:
-                    errorMessage = getString(R.string.wifi_wps_failed_overlap);
+                    Toast.makeText(context,"Failed, WPS_OVERLAP_ERROR",Toast.LENGTH_SHORT).show();
+                    //errorMessage = getString(R.string.wifi_wps_failed_overlap);
                     break;
                 case WifiManager.WPS_WEP_PROHIBITED:
-                    errorMessage = getString(R.string.wifi_wps_failed_wep);
+                    Toast.makeText(context,"Failed, WPS_WEP_PROHIBITED",Toast.LENGTH_SHORT).show();
+                    //errorMessage = getString(R.string.wifi_wps_failed_wep);
                     break;
                 case WifiManager.WPS_TKIP_ONLY_PROHIBITED:
-                    errorMessage = getString(R.string.wifi_wps_failed_tkip);
+                    Toast.makeText(context,"Failed, WPS_TKIP_ONLY_PROHIBITED",Toast.LENGTH_SHORT).show();
+                    //errorMessage = getString(R.string.wifi_wps_failed_tkip);
                     break;
-                case WifiManager.IN_PROGRESS:
-                    mWifiManager.cancelWps(null);
-                    startWps();
+                case WifiManager.WPS_AUTH_FAILURE:
+                    Toast.makeText(context,"Failed, AUTH_FAILURE",Toast.LENGTH_SHORT).show();
+                    //mWifiManager.cancelWps(null);
+                    //startWps();
                     return;
                 case WifiManager.WPS_TIMED_OUT:
-                    startWps();
+                    Toast.makeText(context,"Failed, WPS_TIMED_OUT",Toast.LENGTH_SHORT).show();
+                    //startWps();
                     return;
                 default:
-                    errorMessage = getString(R.string.wifi_wps_failed_generic);
+                    Toast.makeText(context,"Failed, wifi_wps_failed_generic",Toast.LENGTH_SHORT).show();
+                    //errorMessage = getString(R.string.wifi_wps_failed_generic);
                     break;
             }
-            displayFragment(createErrorFragment(errorMessage), true);
-            */
+            //displayFragment(createErrorFragment(errorMessage), true);
+
         }
     };
 
@@ -122,8 +130,8 @@ public class ManualConnectActivity extends Activity {
         Toast.makeText(this,"Connect by WPS", Toast.LENGTH_SHORT).show();
 
         WpsInfo wpsConfig = new WpsInfo();
-        wpsConfig.BSSID = "64:70:02:6d:c9:c6";
-        wpsConfig.pin = "12345678";
+        wpsConfig.BSSID = "b2:46:fc:67:39:38";
+        wpsConfig.pin = "67648566";
         wifimgr.startWps(wpsConfig, mWpsCallback);
     }
 }

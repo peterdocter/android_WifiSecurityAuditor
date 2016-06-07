@@ -111,6 +111,12 @@ public class WifiDetails {
             case 2472:
                 channelNum = 13;
                 break;
+            case 2477:
+                channelNum = 14;
+                break;
+            case 2482:
+                channelNum = 15;
+                break;
             default: channelNum = -1;
                 break;
         }

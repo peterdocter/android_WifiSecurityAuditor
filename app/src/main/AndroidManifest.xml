@@ -26,8 +26,9 @@
             android:label="About" />
         <activity
             android:name=".SettingsActivity"
-            android:label="Settings"></activity>
-        <activity android:name=".ManualConnectActivity"></activity>
+            android:label="Settings" />
+        <activity android:name=".ManualConnectActivity" />
+        <activity android:name=".SearchInsertActivity"></activity>
     </application>
 
 </manifest>
