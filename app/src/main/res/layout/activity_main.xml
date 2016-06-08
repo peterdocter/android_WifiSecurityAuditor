@@ -27,8 +27,27 @@
         android:layout_height="wrap_content"
         android:text="@string/main_manual"
         android:id="@+id/main_btManual"
+        android:onClick="btManual"
         android:layout_below="@+id/main_btScan"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="BSSID Search"
+        android:id="@+id/main_btDBSearch"
+        android:layout_below="@+id/main_btManual"
+        android:layout_alignStart="@+id/main_btManual"
+        android:layout_alignEnd="@+id/main_btManual"
+        android:onClick="btDBSearch" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Test Get Json"
+        android:id="@+id/button5"
+        android:layout_below="@+id/main_btDBSearch"
         android:layout_centerHorizontal="true"
-        android:onClick="btManual" />
+        android:onClick="btTestJson" />
 
 </RelativeLayout>
