@@ -24,10 +24,14 @@ import java.util.List;
 public class ScanActivity extends AppCompatActivity {
     public static WifiManager wifimgr;
     public List<ScanResult> scanResults;
+    public LinkedList<WifiDetails> wifiList = new LinkedList<>();
 
     private Context context;
+    private Activity activity;
     private TextView tvState;
     private ListView resultsView;
+
+    private int selected = -1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +42,15 @@ public class ScanActivity extends AppCompatActivity {
         resultsView = (ListView)findViewById(R.id.scan_lvResults);
         wifimgr = (WifiManager)getSystemService(Context.WIFI_SERVICE);
         context = this;
+        activity = this;
+
+        resultsView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(context,"Click " +position,Toast.LENGTH_SHORT).show();
+                selected = position;
+                activity.openContextMenu(parent);
+            }
+        });
 
         // Register the BroadcastReceiver
         IntentFilter wifiScanFilter = new IntentFilter(WifiManager.SCAN_RESULTS_AVAILABLE_ACTION);
@@ -53,7 +66,7 @@ public class ScanActivity extends AppCompatActivity {
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.main, menu);
+        inflater.inflate(R.menu.onclick_listview, menu);
     }
 
     @Override
@@ -62,7 +75,7 @@ public class ScanActivity extends AppCompatActivity {
         AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
         switch(item.getItemId()){
             case R.id.onclick_lvInsert:
-                Toast.makeText(this,"INSERT",Toast.LENGTH_SHORT).show();
+                callInsertActivity();
                 return true;
             case R.id.onclick_lvVulnerabilities:
                 Toast.makeText(this,"VULNERABILITIES",Toast.LENGTH_SHORT).show();
@@ -70,6 +83,19 @@ public class ScanActivity extends AppCompatActivity {
             default:
                 return super.onContextItemSelected(item);
         }
+    }
+
+    private void callInsertActivity(){
+        WifiDetails wifi = wifiList.get(selected);
+
+        Toast.makeText(this,"INSERT",Toast.LENGTH_SHORT).show();
+        Intent insertData = new Intent(this,SearchInsertActivity.class);
+        insertData.putExtra("action","insert");
+        insertData.putExtra("bssid",wifi.getBssid());
+        insertData.putExtra("essid",wifi.getEssid());
+        insertData.putExtra("channel",wifi.getChannel());
+        insertData.putExtra("security",wifi.getSecurity());
+        startActivity(insertData);
     }
 
 
@@ -98,7 +124,6 @@ public class ScanActivity extends AppCompatActivity {
 
     private void completeListView(){
         ScanResult actual;
-        LinkedList<WifiDetails> wifiList = new LinkedList<>();
 
         for(int i=0; i<scanResults.size(); i++){
             actual = scanResults.get(i);
@@ -107,22 +132,5 @@ public class ScanActivity extends AppCompatActivity {
 
         WifiAdapter listAdapter = new WifiAdapter(this, wifiList);
         resultsView.setAdapter(listAdapter);
-        /*
-        //Create the adapter for the ListView, modified ArrayAdapter to fit twolineslaoyout
-        resultsView.setAdapter(new ArrayAdapter<String[]>(
-                this, android.R.layout.simple_list_item_2, android.R.id.text1, wifiDetails){
-
-            @Override
-            public View getView(int position, View convertView, ViewGroup parent) {
-                View view = super.getView(position, convertView, parent);
-                String[] entry = wifiDetails.get(position);
-                TextView text1 = (TextView) view.findViewById(android.R.id.text1);
-                TextView text2 = (TextView) view.findViewById(android.R.id.text2);
-                text1.setText(entry[0]);
-                text2.setText(entry[1]);
-                return view;
-            }
-        });
-        */
     }
 }
