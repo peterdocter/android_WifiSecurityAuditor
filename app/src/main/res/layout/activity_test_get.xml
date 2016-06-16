@@ -22,10 +22,29 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:id="@+id/textView9"
-        android:layout_below="@+id/textView8"
+        android:id="@+id/json_tvResponse"
+        android:hint="here should be a response"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:hint="here should be a response" />
+        android:layout_below="@+id/json_btTry" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/json_etUrl"
+        android:layout_below="@+id/textView8"
+        android:layout_alignParentStart="true"
+        android:text="http://home.rul3s.es"
+        android:layout_toStartOf="@+id/json_btTry" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="try"
+        android:id="@+id/json_btTry"
+        android:layout_alignTop="@+id/json_etUrl"
+        android:layout_alignParentEnd="true"
+        android:nestedScrollingEnabled="false"
+        android:onClick="testGet" />
 </RelativeLayout>

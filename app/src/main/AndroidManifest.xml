@@ -30,7 +30,14 @@
             android:label="Settings" />
         <activity android:name=".ManualConnectActivity" />
         <activity android:name=".SearchInsertActivity" />
-        <activity android:name=".TestGetActivity"></activity>
+        <activity android:name=".TestGetActivity"/>
+
+        <service
+            android:name=".MessagingSvc">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

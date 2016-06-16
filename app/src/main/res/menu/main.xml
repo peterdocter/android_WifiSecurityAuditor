@@ -6,4 +6,8 @@
     <item android:id="@+id/menu_About"
         android:icon="@drawable/ic_settings_black_24dp"
         android:title="@string/menu_about"/>
+    <item android:id="@+id/menu_Subscribe"
+        android:title="Subscribe"/>
+    <item android:id="@+id/menu_UnSubscribe"
+        android:title="Unsubscribe"/>
 </menu>
