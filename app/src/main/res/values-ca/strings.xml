@@ -8,12 +8,17 @@
     <string name="scan_context_vulner">Comprovar vulnerabilitats</string>
     <string name="connect">Connectar</string>
     <string name="main_search">Cerca per BSSID</string>
-    <string name="manual_title"></string>
     <string name="menu_about">Sobre mi</string>
     <string name="menu_settings">Opcions</string>
     <string name="menu_subscribe">Subscriu-te</string>
     <string name="menu_unsubscribe">Desuscriu-te</string>
     <string name="scan_scanning">Escanejant...</string>
-    <string name="scan_scanningFail"></string>
     <string name="scan_wifiDisabled">Wifi inhabilitada, habilitant...</string>
+    <string name="scan_completed">Escaneig completat</string>
+    <string name="vuln_advWPS">Tens WPS activat, un protocol insegur, hauries de desactivarlo.</string>
+    <string name="vuln_advWep">Empres xifrat WEP, el qual no es segur, hauries de canviar-ho a un mixte WPA/WPA2</string>
+    <string name="vuln_advWpa">Empres xifrat WPA, que tot i ser segur, haries de canviar a WPA2</string>
+    <string name="vuln_cipherOk">Estas emprant el millor xifrat a dia d\'avui, WPA/WPA2 mixte</string>
+    <string name="vuln_ok">Enhorabona! Empres un xifrat WPA/WPA2 i tens WPS desactivat, la teva wifi es segura a menys que utilitzis la password per defecte</string>
+    <string name="vuln_wpsOk">Tens WPS desactivat, la millor opció a nivell de seguretat.</string>
 </resources>
