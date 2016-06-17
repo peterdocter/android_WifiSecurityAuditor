@@ -22,11 +22,11 @@ import java.net.URL;
 public class Connectivity extends AsyncTask<String, Void, String> {
     String urlString;
     public Context context;
-    public View rootView;
+    //public View rootView;
 
     public Connectivity(Context context){
         this.context = context;
-        this.rootView = rootView;
+        //this.rootView = rootView;
     }
 
     @Override

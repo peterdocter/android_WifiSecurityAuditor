@@ -15,6 +15,7 @@
     <string name="scan_scanningFail">Problem start Scanning...</string>
     <string name="scan_context_insert">Insert to DB</string>
     <string name="scan_context_vulner">Check Vulnerabilities</string>
+    <string name="scan_completed">Scan completed</string>
 
     <string name="manual_title" translatable="false">Manual WPS Connect</string>
 
@@ -27,8 +28,10 @@
     <string name="vuln_checkWps">Checking WPS...</string>
     <string name="vuln_advWep">You have WEP cipher, this is lot insecure, you should change cipher to WPA/WPA2 mixed</string>
     <string name="vuln_advWpa">You have only WPA cipher, this can be insecure, you should change cipher to WPA/WPA2 mixed</string>
+    <string name="vuln_cipherOk">You are using the best cipher avaible right now, WPA2 and/or MIXED.</string>
     <string name="vuln_advWPS">You have WPS activated, this is lot insecure, you should disable it</string>
-    <string name="vuln_ok">You have mixed WPA/WPA2 cipher and WPS disabled, you are secure UNLESS you\'re using default router PASSWORD.</string>
+    <string name="vuln_wpsOk">You have WPS disabled, best for security reasons.</string>
+    <string name="vuln_ok">Congratulations! You have mixed WPA/WPA2 cipher and WPS disabled, you are secure UNLESS you\'re using default router PASSWORD.</string>
 
 
     <string name="about_desc">

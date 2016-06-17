@@ -46,7 +46,7 @@ public class ScanActivity extends AppCompatActivity {
 
         resultsView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(context,"Click " +position,Toast.LENGTH_SHORT).show();
+                //Toast.makeText(context,"Click " +position,Toast.LENGTH_SHORT).show();
                 selected = position;
                 activity.openContextMenu(parent);
             }
@@ -89,7 +89,7 @@ public class ScanActivity extends AppCompatActivity {
     private void callInsertActivity(){
         WifiDetails wifi = wifiList.get(selected);
 
-        Toast.makeText(this,"INSERT",Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this,"INSERT",Toast.LENGTH_SHORT).show();
         Intent insertData = new Intent(this,SearchInsertActivity.class);
         insertData.putExtra("action","insert");
         insertData.putExtra("bssid",wifi.getBssid());
@@ -115,7 +115,7 @@ public class ScanActivity extends AppCompatActivity {
             int size;
             scanResults = wifimgr.getScanResults(); // Returns a <list> of scanResults
             size = scanResults.size();
-            tvState.setText("Scan completed, " +size + " wifis found");
+            tvState.setText(getString(R.string.scan_completed) +", " +size + " wifis");
             completeListView();
         }
     };

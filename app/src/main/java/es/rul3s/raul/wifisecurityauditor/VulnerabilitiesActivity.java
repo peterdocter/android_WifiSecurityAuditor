@@ -9,7 +9,7 @@ import android.widget.Toast;
 
 public class VulnerabilitiesActivity extends Activity {
     String security;
-    TextView tvResult;
+    TextView tvResult, tvCipherResult, tvWpsResult;
     String result = "";
 
     @Override
@@ -20,6 +20,8 @@ public class VulnerabilitiesActivity extends Activity {
         Intent intent = getIntent();
         security = intent.getStringExtra("security");
 
+        tvCipherResult = (TextView) findViewById(R.id.vuln_tvCipher);
+        tvWpsResult = (TextView) findViewById(R.id.vuln_tvWps);
         tvResult = (TextView) findViewById(R.id.vuln_tvResult);
 
         //Toast.makeText(this,security,Toast.LENGTH_SHORT).show();
@@ -30,34 +32,31 @@ public class VulnerabilitiesActivity extends Activity {
         boolean vulnerable = false;
         ImageView img= (ImageView) findViewById(R.id.vuln_ivResult);
 
-        result += getString(R.string.vuln_checkCipher) +"\n";
+        //result += getString(R.string.vuln_checkCipher) +"\n";
 
         if(security.contains("WEP")){
-            result += getString(R.string.vuln_advWep);
+            tvCipherResult.setText(getString(R.string.vuln_advWep));
             vulnerable = true;
-        }
-
-        if(security.contains("WPA") && !security.contains("WPA2")){
-            result += getString(R.string.vuln_advWpa);
+        }else if(security.contains("WPA") && !security.contains("WPA2")){
+            tvCipherResult.setText(getString(R.string.vuln_advWpa));
             vulnerable = true;
+        }else{
+            tvCipherResult.setText(getString(R.string.vuln_cipherOk));
         }
-
-        result += getString(R.string.vuln_checkWps) +"\n";
 
         if(security.contains("WPS")){
-            result += getString(R.string.vuln_advWPS);
+            tvWpsResult.setText(getString(R.string.vuln_advWPS));
             vulnerable = true;
+        }else{
+            tvWpsResult.setText(getString(R.string.vuln_wpsOk));
         }
 
-
-
         if(!vulnerable){
-            result += R.string.vuln_ok;
+            tvResult.setText(getString(R.string.vuln_ok));
             img.setImageResource(R.drawable.ok);
+
         }else{
             img.setImageResource(R.drawable.warning);
         }
-
-        tvResult.setText(result);
     }
 }

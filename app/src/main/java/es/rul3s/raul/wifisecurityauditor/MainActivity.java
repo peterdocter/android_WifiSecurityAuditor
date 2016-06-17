@@ -61,18 +61,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(changeAct);
     }
 
-    public void btManual(View view){
-        Intent changeAct = new Intent(this,ManualConnectActivity.class);
-        startActivity(changeAct);
-    }
-
     public void btDBSearch(View view){
-        Intent changeAct = new Intent(this,ManualConnectActivity.class);
-        startActivity(changeAct);
-    }
-
-    public void btTestJson(View view){
-        Intent changeAct = new Intent(this,TestGetActivity.class);
-        startActivity(changeAct);
+        Intent insertData = new Intent(this,SearchInsertActivity.class);
+        insertData.putExtra("action","search");
+        startActivity(insertData);
     }
 }

@@ -34,7 +34,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="BSSID Search"
+        android:text="@string/main_search"
         android:id="@+id/main_btDBSearch"
         android:layout_below="@+id/main_btManual"
         android:layout_alignStart="@+id/main_btManual"
