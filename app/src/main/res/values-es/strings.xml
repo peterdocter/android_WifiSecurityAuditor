@@ -12,5 +12,5 @@
     <string name="menu_subscribe">Suscribete</string>
     <string name="menu_unsubscribe">Desuscribete</string>
     <string name="scan_scanning">Escaneando...</string>
-    <string name="scan_wifiDisabled">Wifi deshabilitada, habilitando...</string>
+    <string name="scan_wifiDisabled">Wifi deshabilitada, habilitando..</string>
 </resources>
