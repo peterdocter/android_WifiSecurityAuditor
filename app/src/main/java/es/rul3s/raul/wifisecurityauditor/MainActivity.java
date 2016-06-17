@@ -61,6 +61,12 @@ public class MainActivity extends AppCompatActivity {
         startActivity(changeAct);
     }
 
+    public void btManualInsert(View view){
+        Intent insertData = new Intent(this,SearchInsertActivity.class);
+        insertData.putExtra("action","insert");
+        startActivity(insertData);
+    }
+
     public void btDBSearch(View view){
         Intent insertData = new Intent(this,SearchInsertActivity.class);
         insertData.putExtra("action","search");

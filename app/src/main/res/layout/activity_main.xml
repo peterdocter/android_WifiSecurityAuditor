@@ -27,9 +27,9 @@
         android:layout_height="wrap_content"
         android:text="@string/main_manual"
         android:id="@+id/main_btManual"
-        android:onClick="btManual"
         android:layout_below="@+id/main_btScan"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:onClick="btManualInsert" />
 
     <Button
         android:layout_width="wrap_content"
