@@ -3,4 +3,14 @@
     <string name="app_name">Auditor Seguridad WiFi</string>
     <string name="main_scan">Escanear</string>
     <string name="main_manual">Introducir manualmente</string>
+    <string name="scan_context_insert">Añadir a la BBDD</string>
+    <string name="scan_context_vulner">Comprobar vulnerabilidades</string>
+    <string name="connect">Conectar</string>
+    <string name="main_search">Buscar por BSSID</string>
+    <string name="menu_about">Acerca de</string>
+    <string name="menu_settings">Opciones</string>
+    <string name="menu_subscribe">Suscribete</string>
+    <string name="menu_unsubscribe">Desuscribete</string>
+    <string name="scan_scanning">Escaneando...</string>
+    <string name="scan_wifiDisabled">Wifi deshabilitada, habilitando...</string>
 </resources>

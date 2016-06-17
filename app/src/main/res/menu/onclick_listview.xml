@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@+id/onclick_lvInsert"
-        android:title="Insert to DB"/>
+        android:title="@+id/scan_context_insert"/>
     <item android:id="@+id/onclick_lvVulnerabilities"
-        android:title="Vulnerabilities"/>
+        android:title="@+id/scan_context_vulner"/>
 </menu>

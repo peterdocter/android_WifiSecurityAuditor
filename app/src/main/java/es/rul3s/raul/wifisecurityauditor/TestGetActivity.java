@@ -35,7 +35,8 @@ public class TestGetActivity extends Activity {
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
         if (networkInfo != null && networkInfo.isConnected()) {
             tvResp.setText(tvResp.getText() +"OK");
-            Connectivity con = new Connectivity(this,urlString);
+            Connectivity con = new Connectivity(this);
+            con.doInBackground(urlString);
         }else {
             tvResp.setText(tvResp.getText() +"FAIL");
         }

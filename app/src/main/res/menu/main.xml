@@ -7,7 +7,7 @@
         android:icon="@drawable/ic_settings_black_24dp"
         android:title="@string/menu_about"/>
     <item android:id="@+id/menu_Subscribe"
-        android:title="Subscribe"/>
+        android:title="@+id/menu_Subscribe"/>
     <item android:id="@+id/menu_UnSubscribe"
-        android:title="Unsubscribe"/>
+        android:title="@+id/menu_UnSubscribe"/>
 </menu>

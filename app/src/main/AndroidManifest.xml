@@ -30,14 +30,15 @@
             android:label="Settings" />
         <activity android:name=".ManualConnectActivity" />
         <activity android:name=".SearchInsertActivity" />
-        <activity android:name=".TestGetActivity"/>
+        <activity android:name=".TestGetActivity" />
 
-        <service
-            android:name=".MessagingSvc">
+        <service android:name=".MessagingSvc">
             <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
+
+        <activity android:name=".VulnerabilitiesActivity"></activity>
     </application>
 
 </manifest>

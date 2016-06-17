@@ -4,4 +4,16 @@
 
     <string name="main_scan">Escanejar</string>
     <string name="main_manual">Introduir manualment</string>
+    <string name="scan_context_insert">Afegir a la BBDD</string>
+    <string name="scan_context_vulner">Comprovar vulnerabilitats</string>
+    <string name="connect">Connectar</string>
+    <string name="main_search">Cerca per BSSID</string>
+    <string name="manual_title"></string>
+    <string name="menu_about">Sobre mi</string>
+    <string name="menu_settings">Opcions</string>
+    <string name="menu_subscribe">Subscriu-te</string>
+    <string name="menu_unsubscribe">Desuscriu-te</string>
+    <string name="scan_scanning">Escanejant...</string>
+    <string name="scan_scanningFail"></string>
+    <string name="scan_wifiDisabled">Wifi inhabilitada, habilitant...</string>
 </resources>

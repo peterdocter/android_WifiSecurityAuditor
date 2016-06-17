@@ -6,6 +6,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,23 +19,25 @@ import java.net.URL;
 /**
  * Created by Raul on 16/06/2016.
  */
-public class Connectivity extends AsyncTask<Void, Integer, String> {
+public class Connectivity extends AsyncTask<String, Void, String> {
     String urlString;
-    Context context;
+    public Context context;
+    public View rootView;
 
-    public Connectivity(Context context, String urlString){
-        this.urlString = urlString;
+    public Connectivity(Context context){
         this.context = context;
+        this.rootView = rootView;
     }
 
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
-        Toast.makeText(context,urlString,Toast.LENGTH_SHORT).show();
+        Log.d("INFO:","PreExecute");
     }
 
     @Override
-    protected String doInBackground(Void... params) {
+    protected String doInBackground(String... params) {
+        Log.d("INFO:","DoInBackGround");
         try{
             URL url = new URL(urlString);
             HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
@@ -49,6 +52,5 @@ public class Connectivity extends AsyncTask<Void, Integer, String> {
     @Override
     protected void onPostExecute(String result) {
         super.onPostExecute(result);
-        Log.d("RESPONSE:",result);
     }
 }

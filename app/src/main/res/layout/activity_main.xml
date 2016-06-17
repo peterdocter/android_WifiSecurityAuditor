@@ -41,13 +41,4 @@
         android:layout_alignEnd="@+id/main_btManual"
         android:onClick="btDBSearch" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Test Get Json"
-        android:id="@+id/button5"
-        android:layout_below="@+id/main_btDBSearch"
-        android:layout_centerHorizontal="true"
-        android:onClick="btTestJson" />
-
 </RelativeLayout>

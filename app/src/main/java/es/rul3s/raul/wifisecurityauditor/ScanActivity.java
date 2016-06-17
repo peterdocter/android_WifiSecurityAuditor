@@ -78,7 +78,8 @@ public class ScanActivity extends AppCompatActivity {
                 callInsertActivity();
                 return true;
             case R.id.onclick_lvVulnerabilities:
-                Toast.makeText(this,"VULNERABILITIES",Toast.LENGTH_SHORT).show();
+                callVulnerabilitiesActivity();
+                //Toast.makeText(this,"VULNERABILITIES",Toast.LENGTH_SHORT).show();
                 return true;
             default:
                 return super.onContextItemSelected(item);
@@ -96,6 +97,15 @@ public class ScanActivity extends AppCompatActivity {
         insertData.putExtra("channel",wifi.getChannel());
         insertData.putExtra("security",wifi.getSecurity());
         startActivity(insertData);
+    }
+
+    private void callVulnerabilitiesActivity(){
+        WifiDetails wifi = wifiList.get(selected);
+
+        //Toast.makeText(this,"VULNERABILITIES",Toast.LENGTH_SHORT).show();
+        Intent vulnerabilities = new Intent(this,VulnerabilitiesActivity.class);
+        vulnerabilities.putExtra("security",wifi.getSecurity());
+        startActivity(vulnerabilities);
     }
 
 
