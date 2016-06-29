@@ -10,6 +10,8 @@
     <string name="main_manual">Manual Input</string>
     <string name="main_search">BSSID Search</string>
 
+    <string name="sett_lang">Language</string>
+
     <string name="scan_wifiDisabled">Wifi is disabled, enabling...</string>
     <string name="scan_scanning">Scanning...</string>
     <string name="scan_scanningFail" translatable="false">Problem start Scanning...</string>

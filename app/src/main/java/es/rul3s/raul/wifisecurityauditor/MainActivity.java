@@ -2,8 +2,12 @@ package es.rul3s.raul.wifisecurityauditor;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -14,6 +18,8 @@ import android.widget.Toast;
 
 import com.google.firebase.messaging.FirebaseMessaging;
 
+import java.util.Locale;
+
 public class MainActivity extends AppCompatActivity {
     public Context context;
 
@@ -22,6 +28,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         context = this;
+
+        SharedPreferences prefs =
+                getSharedPreferences("MisPreferencias",Context.MODE_PRIVATE);
+        setLocale(prefs.getString("lang", "undefined"));
     }
 
     @Override
@@ -71,5 +81,19 @@ public class MainActivity extends AppCompatActivity {
         Intent insertData = new Intent(this,SearchInsertActivity.class);
         insertData.putExtra("action","search");
         startActivity(insertData);
+    }
+
+    public void setLocale(String lang) {
+        if(lang!="undefined") {
+            Locale myLocale = new Locale(lang);
+            Resources res = getResources();
+            DisplayMetrics dm = res.getDisplayMetrics();
+            Configuration conf = res.getConfiguration();
+            conf.locale = myLocale;
+            res.updateConfiguration(conf, dm);
+            Intent refresh = new Intent(this, MainActivity.class);
+            startActivity(refresh);
+            finish();
+        }
     }
 }

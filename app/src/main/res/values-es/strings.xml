@@ -20,4 +20,5 @@
     <string name="vuln_cipherOk">Estas usando el mejor cifrado a dia de hoy, WPA/WPA2 mixto.</string>
     <string name="vuln_ok">Enhorabuena! Estas usando un cifrado WPA/WPA2 y tienes WPS desactivado por lo que tu wifi es segura a menos que utilizes el password por defecto.</string>
     <string name="vuln_wpsOk">Tienes WPS desactivado, la mejor opcion a nivel de seguridad.</string>
+    <string name="sett_lang">Lenguaje</string>
 </resources>
