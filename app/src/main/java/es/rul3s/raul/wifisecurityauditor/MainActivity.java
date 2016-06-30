@@ -28,10 +28,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         context = this;
-
-        SharedPreferences prefs =
-                getSharedPreferences("MisPreferencias",Context.MODE_PRIVATE);
-        setLocale(prefs.getString("lang", "undefined"));
     }
 
     @Override
@@ -81,19 +77,5 @@ public class MainActivity extends AppCompatActivity {
         Intent insertData = new Intent(this,SearchInsertActivity.class);
         insertData.putExtra("action","search");
         startActivity(insertData);
-    }
-
-    public void setLocale(String lang) {
-        if(lang!="undefined") {
-            Locale myLocale = new Locale(lang);
-            Resources res = getResources();
-            DisplayMetrics dm = res.getDisplayMetrics();
-            Configuration conf = res.getConfiguration();
-            conf.locale = myLocale;
-            res.updateConfiguration(conf, dm);
-            Intent refresh = new Intent(this, MainActivity.class);
-            startActivity(refresh);
-            finish();
-        }
     }
 }

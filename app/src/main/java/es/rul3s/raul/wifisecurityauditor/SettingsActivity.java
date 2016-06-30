@@ -45,7 +45,7 @@ public class SettingsActivity extends AppCompatActivity implements AdapterView.O
                                int pos, long id) {
         SharedPreferences prefs = getSharedPreferences("MisPreferencias",Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = prefs.edit();
-        Toast.makeText(this,"Selected option " +pos, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this,"Selected option " +pos, Toast.LENGTH_SHORT).show();
         switch(pos) {
             case 1:
                 editor.putString("lang", "ca");
@@ -76,8 +76,6 @@ public class SettingsActivity extends AppCompatActivity implements AdapterView.O
         Configuration conf = res.getConfiguration();
         conf.locale = myLocale;
         res.updateConfiguration(conf, dm);
-        Intent refresh = new Intent(this, SettingsActivity.class);
-        startActivity(refresh);
-        finish();
+        Toast.makeText(this,R.string.sett_lang_changed, Toast.LENGTH_SHORT).show();
     }
 }
