@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="General">
+        <CheckBoxPreference
+            android:key="notif"
+            android:title="@string/sett_notif"
+            android:summary="@string/sett_notif_desc" />
+        <EditTextPreference
+            android:key="mail"
+            android:title="@string/sett_mail"
+            android:summary="@string/sett_mail_desc"
+            android:dialogTitle="eMail" />
+        <ListPreference
+            android:key="language"
+            android:title="Language"
+            android:summary="Select language for UI"
+            android:dialogTitle="Indicar Pais"
+            android:entries="@array/lang_array"
+            android:entryValues="@array/lang_array" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="Network">
+        <CheckBoxPreference
+            android:key="conn3g"
+            android:title="@string/sett_conn"
+            android:summary="@string/sett_conn_desc" />
+    </PreferenceCategory>
+</PreferenceScreen>

@@ -12,6 +12,13 @@
 
     <string name="sett_lang">Language</string>
     <string name="sett_lang_changed">Language changed, restart App</string>
+    <string name="sett_conn">Use 3G connection</string>
+    <string name="sett_conn_desc">If not only use WiFi for connections</string>
+    <string name="sett_mail">Email</string>
+    <string name="sett_mail_desc">To recieve important notices via mail also</string>
+    <string name="sett_notif">Subscribe to news</string>
+    <string name="sett_notif_desc">To recieve important notices via notification panel</string>
+
 
     <string name="scan_wifiDisabled">Wifi is disabled, enabling...</string>
     <string name="scan_scanning">Scanning...</string>

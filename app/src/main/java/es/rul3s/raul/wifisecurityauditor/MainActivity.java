@@ -39,11 +39,11 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        Intent changeAct;
+        Intent changeAct, asd;
         switch (item.getItemId()) {
             case R.id.menu_Settings:
-                changeAct = new Intent(this,SettingsActivity.class);
-                startActivity(changeAct);
+                asd = new Intent(this,OptionsActivity.class);
+                startActivity(asd);
                 return true;
             case R.id.menu_About:
                 changeAct = new Intent(this,AboutActivity.class);
